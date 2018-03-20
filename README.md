@@ -1,12 +1,13 @@
 
-## Internet Native Chat (INC)
+# Internet Native Chat (INC)
 
 A react native chatting application with a connection to a MySQL database.
 
 ## Back End
 
 MySQL database where all the messages are stored.    
-PHP-scripts on the server side handle the connection to database.    
+PHP-scripts on the server side handle the connection to database.
+
 Front end application calls these scripts:    
 showmessages.php outputs all the messages as a RESTful service.    
 addmsg.php is used to add new messages to the database.    
