@@ -17,7 +17,7 @@ export default class Home extends React.Component{
       <KeyboardAvoidingView behavior="padding" style={styles.main}>
 
         <View style={styles.welcome}>
-          <Image source={require('./img/logo.png')} />
+          <Image source={require('./img/smallogo.png')} />
         </View>
 
         <View style={styles.inputsContainer}>
