@@ -3,33 +3,19 @@ import {KeyboardAvoidingView, StyleSheet, Text, View, Button, TextInput, Image, 
 import {StackNavigator} from 'react-navigation';
 import { Header, Icon } from 'react-native-elements';
 
-export default class MsgDetails extends React.Component{
+export default class Info extends React.Component{
 
 
   constructor() {
     super();
-    this.state = { msgDate: '', msgTime: '', msgMsg: '', msgSender: '', msgChannel: '' }
 }
 
 componentWillMount() {
-  this.setMessage();
+
 }
-
-  setMessage = () => {
-    {/* Creates the message using navigation parameters */}
-    const {params} = this.props.navigation.state;
-    this.setState({ msgDate: params.msgDate,
-                    msgTime: params.msgTime,
-                    msgMsg: params.msgMsg,
-                    msgSender: params.msgSender,
-                    msgChannel: params.msgChannel,
-                  });
-  }
-
 
   render() {
     const {goBack} = this.props.navigation;
-    const {navigate} = this.props.navigation;
     return (
 
       <KeyboardAvoidingView behavior="padding" style={styles.main}>
@@ -37,12 +23,8 @@ componentWillMount() {
       <Header
         outerContainerStyles={{ height: 90, alignSelf: 'stretch', backgroundColor: '#3D6DCC' }}
         innerContainerStyles={{ alignItems: 'flex-end'}}
-        rightComponent={<Icon
-                        name='info'
-                        color='#fff'
-                        onPress={() => navigate('Info')}
-                        />}
-        centerComponent={{text: 'Message Details', style: {color: '#fff', fontSize: 18}}}
+
+        centerComponent={{text: 'Info', style: {color: '#fff', fontSize: 18}}}
         leftComponent={<Icon
                         name='arrow-back'
                         color='#fff'
@@ -51,11 +33,12 @@ componentWillMount() {
       />
 
 
-        <View style={{padding: 10, alignItems: 'center'}}>
-          <Text>Sent: {this.state.msgDate} at {this.state.msgTime}</Text>
-          <Text>Sender: {this.state.msgSender}</Text>
-          <Text>Channel: {this.state.msgChannel}</Text>
-          <Text style={{maxWidth: 250}}>Message: {this.state.msgMsg}</Text>
+        <View style={{padding: 10, alignItems: 'flex-start'}}>
+
+          <Text>React Native chat app by Matias Räisänen, 2018</Text>
+          <Text>Source code at:</Text>
+          <Text>https://github.com/matiasraisanen/Internet-Native-Chat</Text>
+
         </View>
 
       </KeyboardAvoidingView>

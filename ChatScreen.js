@@ -5,12 +5,11 @@ import{ Badge, Header, Icon,} from 'react-native-elements';
 
 let interval;
 
-export default class App extends React.Component {
+export default class ChatScreen extends React.Component {
 
-  constructor()
-{
-    super();
-    this.state = { messages: [], channelMessages: [], nick: '', message: '', channel: 'general', loading: false, }
+constructor() {
+  super();
+  this.state = { messages: [], channelMessages: [], nick: '', message: '', channel: 'general', loading: false, }
 }
 
 componentWillMount() {
@@ -124,25 +123,29 @@ listSeparator = () => {
   );
 };
 
-renderItem = ({item}) => {
+renderChat = ({item}) => {
+  {/* Render chat messages for FlatList */}
   const {navigate} = this.props.navigation;
 
   return (
-    <View style={{padding: 5, flexDirection: 'column',}}>
-          <View style={{padding: 1, flexDirection: 'row'}}>
-          <Text style={styles.time}>{item.time} | </Text>
-          <Text style={styles.nick}>{item.nick} </Text>
+    <View style={{padding: 5, flexDirection: 'row',}}>
+          <View style={{minWidth: 90, padding: 1, flexDirection: 'column', alignItems: 'flex-end'}}>
+            <Text style={styles.nick}>{item.nick} </Text>
+            <Text style={styles.time}>{item.time} </Text>
           </View>
 
-        <Badge  containerStyle={{ minHeight: 30, width: 250, backgroundColor: '#b3d6ff'}}
-        onPress={() => navigate('MsgDetails', { msgSender: item.nick,
-                                                msgDate: item.date,
-                                                msgTime: item.time,
-                                                msgMsg: item.message,
-                                                msgChannel: item.channel,
-                                              })}>
-        <Text style={styles.messagetext}> {item.message}</Text>
-        </Badge>
+          <View style={{flexDirection: 'row'}}>
+
+            <Badge  containerStyle={{ minHeight: 30, width: 250, backgroundColor: '#b3d6ff'}}
+            onPress={() => navigate('MsgDetails', { msgSender: item.nick,
+                                                    msgDate: item.date,
+                                                    msgTime: item.time,
+                                                    msgMsg: item.message,
+                                                    msgChannel: item.channel,
+                                                  })}>
+              <Text style={styles.messagetext}> {item.message}</Text>
+            </Badge>
+          </View>
     </View>
   )
 }
@@ -150,6 +153,8 @@ renderItem = ({item}) => {
   render() {
 
     const {goBack} = this.props.navigation;
+    const {navigate} = this.props.navigation;
+
     return(
 
 
@@ -159,10 +164,14 @@ renderItem = ({item}) => {
                 <Header
                 outerContainerStyles={{ height: 90, alignSelf: 'stretch', backgroundColor: '#3D6DCC' }}
                 innerContainerStyles={{ alignItems: 'flex-end'}}
-                  leftComponent={{ icon: 'menu', color: '#fff' }}
-                  centerComponent={this.channelPicker()}
                   rightComponent={<Icon
-                                  name='home'
+                                  name='info'
+                                  color='#fff'
+                                  onPress={() => navigate('Info')}
+                                  />}
+                  centerComponent={this.channelPicker()}
+                  leftComponent={<Icon
+                                  name='arrow-back'
                                   color='#fff'
                                   onPress = {() => goBack()}
                                   />}
@@ -175,7 +184,7 @@ renderItem = ({item}) => {
                     inverted    //Render the list inverted, so that the latest message is always seen.
                     style={{marginLeft: '5%', alignSelf: 'stretch'}}
                     keyExtractor={item => item.id}
-                    renderItem={this.renderItem}
+                    renderItem={this.renderChat}
 
                     data={this.state.channelMessages} //Messages filtered by selected channel
                     ItemSeparatorComponent={this.listSeparator} />

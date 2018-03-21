@@ -4,12 +4,12 @@ import {StackNavigator} from 'react-navigation';
 import Home from './Home';
 import ChatScreen from './ChatScreen';
 import MsgDetails from './MsgDetails';
+import Info from './Info';
 
 export default class App extends React.Component {
 
   constructor() {
     super();
-    this.state = { messages: [], channelMessages: [], nick: '', message: '', channel: 'general'}
 }
 
 render() {
@@ -24,6 +24,7 @@ const NativeChat = StackNavigator(
     Home: {screen: Home},
     ChatScreen: {screen: ChatScreen},
     MsgDetails: {screen: MsgDetails},
+    Info: {screen: Info},
   },
   { headerMode: 'none' }
 );

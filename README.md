@@ -23,6 +23,7 @@ INC-logo animated using [Animated](https://facebook.github.io/react-native/docs/
 
 [ChatScreen.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/ChatScreen.js) contains the chatting application. Chat refresh rate is 5 seconds.
 
+[MsgDetails.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/MsgDetails.js) shows the details of a message that the user presses in the chat.
 
 ## Sources
 [Output JSON array in PHP](https://stackoverflow.com/questions/8706008/output-json-array-in-php)

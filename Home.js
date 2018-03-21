@@ -12,49 +12,43 @@ export default class Home extends React.Component{
   }
 
   componentDidMount () {
-    this.spin();
-    this.sizeIncrease();
-
+    this.logoAnimation();
   }
 
-  spin() {
-    this.state.spinValue.setValue(0);
-    Animated.timing(
-      this.state.spinValue,
-      {
-        toValue: 1,
-        duration: 800,
-        easing: Easing.linear,
-        delay: 4000
-      }
-    ).start(() => this.spin())
+  componentWillUnmount() {
+    this.state.sizeValue.stopAnimation();
+    this.state.spinValue.stopAnimation();
   }
 
-  sizeIncrease() {
-    this.state.sizeValue.setValue(1);
-    Animated.timing(this.state.sizeValue, {
-      toValue: 10,
-      duration: 400,
-      easing: Easing.linear,
-      delay: 4000
-    }).start((o) => {
-      if (o.finished) {
-        this.sizeDecrease();
-      }
-    });
-  }
-
-  sizeDecrease() {
-    this.state.sizeValue.setValue(10);
-    Animated.timing(this.state.sizeValue, {
-      toValue: 1,
-      duration: 400,
-      easing: Easing.linear,
-    }).start((o) => {
-      if (o.finished) {
-        this.sizeIncrease();
-      }
-    });
+  logoAnimation() {
+    {/* Create a spinning and breathing animation for the logo */}
+    Animated.loop(
+      Animated.parallel([
+        Animated.timing( this.state.spinValue,
+          {
+            toValue: 1,
+            duration: 800,
+            easing: Easing.linear,
+            delay: 3000
+          }
+        ),
+        Animated.sequence([
+          Animated.timing(this.state.sizeValue,
+            {
+            toValue: 10,
+            duration: 400,
+            easing: Easing.linear,
+            delay: 3000
+          }),
+          Animated.timing(this.state.sizeValue,
+            {
+            toValue: 1,
+            duration: 400,
+            easing: Easing.linear,
+          }),
+        ])
+    ])
+    ).start();
   }
 
   render() {
@@ -77,11 +71,12 @@ export default class Home extends React.Component{
       <Header
         outerContainerStyles={{ height: 90, alignSelf: 'stretch', backgroundColor: '#3D6DCC' }}
         innerContainerStyles={{ alignItems: 'flex-end'}}
-        leftComponent={{ icon: 'menu', color: '#fff' }}
+
         centerComponent={{text: 'Internet Native Chat', style: {color: '#fff', fontSize: 18}}}
         rightComponent={<Icon
-                        name='home'
+                        name='info'
                         color='#fff'
+                        onPress={() => navigate('Info')}
                         />}
       />
 
