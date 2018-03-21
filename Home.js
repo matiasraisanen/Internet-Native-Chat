@@ -71,7 +71,6 @@ export default class Home extends React.Component{
       <Header
         outerContainerStyles={{ height: 90, alignSelf: 'stretch', backgroundColor: '#3D6DCC' }}
         innerContainerStyles={{ alignItems: 'flex-end'}}
-
         centerComponent={{text: 'Internet Native Chat', style: {color: '#fff', fontSize: 18}}}
         rightComponent={<Icon
                         name='info'
