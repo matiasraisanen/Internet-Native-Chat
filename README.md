@@ -19,6 +19,8 @@ Front end application calls these scripts:
 
 Uses navigation to switch between different screens.    
 [Home.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/Home.js) contains a welcome screen, where the user sets their nick.    
+INC-logo animated using [Animated](https://facebook.github.io/react-native/docs/animations.html)
+
 [ChatScreen.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/ChatScreen.js) contains the chatting application. Chat refresh rate is 5 seconds.
 
 

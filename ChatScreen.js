@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, FlatList, KeyboardAvoidingView, Picker, } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, FlatList, KeyboardAvoidingView, Picker, Alert, Modal} from 'react-native';
 import {StackNavigator} from 'react-navigation';
-import{ Header, Icon, Overlay } from 'react-native-elements';
+import{ Badge, Header, Icon,} from 'react-native-elements';
 
 let interval;
 
@@ -99,6 +99,7 @@ filterMessages = () => {
 }
 
 fetchMessages = () => {
+{/* Fetch messages from the server */}
   fetch('http://renki.dy.fi/nativechat/showmessages.php') //RESTful service for adding messages.
   .then((response) => response.json())
     .then((responseJson) => {
@@ -123,9 +124,31 @@ listSeparator = () => {
   );
 };
 
+renderItem = ({item}) => {
+  const {navigate} = this.props.navigation;
 
+  return (
+    <View style={{padding: 5, flexDirection: 'column',}}>
+          <View style={{padding: 1, flexDirection: 'row'}}>
+          <Text style={styles.time}>{item.time} | </Text>
+          <Text style={styles.nick}>{item.nick} </Text>
+          </View>
+
+        <Badge  containerStyle={{ minHeight: 30, width: 250, backgroundColor: '#b3d6ff'}}
+        onPress={() => navigate('MsgDetails', { msgSender: item.nick,
+                                                msgDate: item.date,
+                                                msgTime: item.time,
+                                                msgMsg: item.message,
+                                                msgChannel: item.channel,
+                                              })}>
+        <Text style={styles.messagetext}> {item.message}</Text>
+        </Badge>
+    </View>
+  )
+}
 
   render() {
+
     const {goBack} = this.props.navigation;
     return(
 
@@ -152,14 +175,7 @@ listSeparator = () => {
                     inverted    //Render the list inverted, so that the latest message is always seen.
                     style={{marginLeft: '5%', alignSelf: 'stretch'}}
                     keyExtractor={item => item.id}
-                    renderItem={({item}) =>(
-                      <Text style={styles.time}>{item.time} |
-                      <Text style={styles.nick}>{item.nick}:
-                      <Text style={styles.messagetext}> {item.message}
-                      </Text>
-                      </Text>
-                      </Text>
-                    )}
+                    renderItem={this.renderItem}
 
                     data={this.state.channelMessages} //Messages filtered by selected channel
                     ItemSeparatorComponent={this.listSeparator} />
@@ -237,7 +253,7 @@ const styles = StyleSheet.create({
 
   nick: {
     fontSize: 14,
-    color: '#0000ff'
+    color: '#3D6DCC'
   },
 
   time: {
