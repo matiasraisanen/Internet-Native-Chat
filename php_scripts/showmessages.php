@@ -10,7 +10,7 @@ if ($connection->connect_error)
 }
 
 //$query = "SELECT * FROM messages";
-$query = "SELECT id, time, nick, message, channel FROM messages";
+$query = "SELECT id, time, date, nick, message, channel FROM messages";
 
 $connection->set_charset("utf8");
 $result = mysqli_query($connection,$query);
