@@ -135,7 +135,6 @@ renderChat = ({item}) => {
           </View>
 
           <View style={{flexDirection: 'row'}}>
-
             <Badge  containerStyle={{ minHeight: 30, width: 250, backgroundColor: '#b3d6ff'}}
             onPress={() => navigate('MsgDetails', { msgSender: item.nick,
                                                     msgDate: item.date,
@@ -162,8 +161,8 @@ renderChat = ({item}) => {
                 {/* Main container. Contains heading and child containers.*/}
 
                 <Header
-                outerContainerStyles={{ height: 90, alignSelf: 'stretch', backgroundColor: '#3D6DCC' }}
-                innerContainerStyles={{ alignItems: 'flex-end'}}
+                  outerContainerStyles={{ height: 90, alignSelf: 'stretch', backgroundColor: '#3D6DCC' }}
+                  innerContainerStyles={{ alignItems: 'flex-end'}}
                   rightComponent={<Icon
                                   name='info'
                                   color='#fff'
@@ -208,9 +207,7 @@ renderChat = ({item}) => {
                           color='#3D6DCC'
                           onPress = {
                             this.sendMessage}
-                          />)
-                          :
-                          (<ActivityIndicator size = "large" />)
+                          />) : (<ActivityIndicator size = "large" />)
                         }
                       </View>
 
