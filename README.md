@@ -26,8 +26,3 @@ INC-logo animated using [Animated](https://facebook.github.io/react-native/docs/
 [MsgDetails.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/MsgDetails.js) shows the details of a message that the user presses in the chat.
 
 [Info.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/Info.js) is just a short application info page.
-
-## Sources
-[Output JSON array in PHP](https://stackoverflow.com/questions/8706008/output-json-array-in-php)
-
-[Insert data into database through PHP](https://tutorialscapital.com/insert-data-into-database-through-php-mysql-react-native-android-ios-tutorial/)

@@ -83,7 +83,7 @@ sendMessage = () => {
             this.setState({ loading: false});
         })
         .then(this.fetchMessages) //Retrieve the new messagelist from the server
-        .then(this.setState({message: ''}));
+        .then(this.setState({message: ''})); //Clear the message box
     })
 
 }
@@ -136,7 +136,8 @@ renderChat = ({item}) => {
 
           <View style={{flexDirection: 'row'}}>
             <Badge  containerStyle={{ minHeight: 30, width: 250, backgroundColor: '#b3d6ff'}}
-            onPress={() => navigate('MsgDetails', { msgSender: item.nick,
+            onPress={() => navigate('MsgDetails', {
+                                                    msgSender: item.nick,
                                                     msgDate: item.date,
                                                     msgTime: item.time,
                                                     msgMsg: item.message,
