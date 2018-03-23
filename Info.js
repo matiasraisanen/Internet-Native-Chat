@@ -32,14 +32,20 @@ componentWillMount() {
                         />}
       />
 
+      <View style={{padding: 30, alignItems: 'flex-start'}}>
 
-        <View style={{padding: 10, alignItems: 'flex-start'}}>
+        <Text>React Native chat app by Matias Räisänen, 2018</Text>
+        <Text></Text>
+        <Text>Source code at:</Text>
+        <Text>https://github.com/matiasraisanen/Internet-Native-Chat</Text>
 
-          <Text>React Native chat app by Matias Räisänen, 2018</Text>
-          <Text>Source code at:</Text>
-          <Text>https://github.com/matiasraisanen/Internet-Native-Chat</Text>
+      </View>
 
+        <View style={{padding: 150, alignItems: 'center'}}>
+        <Image source={require('./img/info.png')} style={{padding: 20, width: 200, height: 200}} />
         </View>
+
+
 
       </KeyboardAvoidingView>
     );

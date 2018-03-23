@@ -93,7 +93,7 @@ export default class Home extends React.Component{
         <View style={styles.inputsContainer}>
           <Text>What should we call you?</Text>
 
-          <TextInput placeholder = "nickname" style = {styles.textInput} onChangeText = {(text) => this.setState({nick: text})} value={this.state.nick}/>
+          <TextInput placeholder = "nickname" style={styles.textInput} onChangeText={(text) => this.setState({nick: text})} value={this.state.nick} onSubmitEditing={() => navigate('ChatScreen', {nick: this.state.nick})} returnKeyType='go'/>
 
 
           <Button onPress={() => navigate('ChatScreen', {nick: this.state.nick})} title="Let me in!"/>

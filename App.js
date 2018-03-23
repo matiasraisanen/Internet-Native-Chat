@@ -26,5 +26,5 @@ const NativeChat = StackNavigator(
     MsgDetails: {screen: MsgDetails},
     Info: {screen: Info},
   },
-  { headerMode: 'none' }
+  { headerMode: 'none' } // Disable the default header. The app uses react native elements header instead.
 );
