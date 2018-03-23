@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, FlatList, KeyboardAvoidingView, Picker, Alert, Modal} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, FlatList, KeyboardAvoidingView, Picker, Alert, Modal, TouchableHighlight} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import{ Badge, Header, Icon,} from 'react-native-elements';
 
@@ -134,6 +134,7 @@ renderChat = ({item}) => {
           </View>
 
           <View style={{flexDirection: 'row'}}>
+
             <Badge  containerStyle={{ minHeight: 30, width: 250, backgroundColor: '#b3d6ff'}}
             onPress={() => navigate('MsgDetails', {
                                                     msgSender: item.nick,
@@ -193,7 +194,7 @@ renderChat = ({item}) => {
                     {/* Contains the message input box and send button */}
                       <View style={{flex: 5}}>
 
-                        <TextInput placeholder = {this.state.nick} style = {styles.textInput} onChangeText = {(text) => this.setState({message: text})} value={this.state.message}/>
+                        <TextInput placeholder = {this.state.nick} style = {styles.textInput} onChangeText = {(text) => this.setState({message: text})} value={this.state.message} onSubmitEditing={this.sendMessage} returnKeyType='send'/>
                       </View>
 
                       <View style={{flex: 1}}>

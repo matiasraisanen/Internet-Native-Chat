@@ -94,6 +94,7 @@ export default class Home extends React.Component{
           <Text>What should we call you?</Text>
 
           <TextInput placeholder = "nickname" style={styles.textInput} onChangeText={(text) => this.setState({nick: text})} value={this.state.nick} onSubmitEditing={() => navigate('ChatScreen', {nick: this.state.nick})} returnKeyType='go'/>
+          {/* Change keyboard submit button to 'go', and add an action to it. */}
 
 
           <Button onPress={() => navigate('ChatScreen', {nick: this.state.nick})} title="Let me in!"/>
