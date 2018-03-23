@@ -21,7 +21,6 @@ componentDidMount() {
   {/* ReFresh the chat every 5000 milliseconds */}
   interval = setInterval(() => {
     this.fetchMessages();
-    console.log("ReFresh")
   }, 5000);
 }
 
