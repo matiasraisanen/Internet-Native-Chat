@@ -3,6 +3,8 @@
 
 A react native chatting application with a connection to a MySQL database.
 
+<a href="https://youtu.be/5lX1Vs0KVbw" target="_blank"><img src="https://img.youtube.com/vi/5lX1Vs0KVbw/default.jpg/" alt="DEMO" width="240" height="180" border="10" /></a><br> [Demo video of APK](https://youtu.be/5lX1Vs0KVbw)
+
 ## Back End
 
 MySQL database where all the messages are stored.    
@@ -17,7 +19,8 @@ Front end application calls these scripts:
 
 ## Front End
 
-Uses navigation to switch between different screens.    
+Uses navigation to switch between different screens.
+
 [Home.js](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/Home.js) contains a welcome screen, where the user sets their nick.    
 INC-logo animated using [Animated](https://facebook.github.io/react-native/docs/animations.html)
 

@@ -1,5 +1,15 @@
 {
-  "expo": {
-    "sdkVersion": "25.0.0"
-  }
-}
+   "expo": {
+    "name": "INC",
+    "icon": "./img/icon.png",
+    "version": "1.0.0",
+    "slug": "inc",
+    "sdkVersion": "25.0.0",
+    "ios": {
+      "bundleIdentifier": "com.raisanen.inc"
+    },
+    "android": {
+      "package": "com.raisanen.inc"
+    }
+   }
+ }
