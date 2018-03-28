@@ -3,7 +3,7 @@
 
 A react native chatting application with a connection to a MySQL database.
 
-<a href="https://youtu.be/5lX1Vs0KVbw" target="_blank"><img src="https://img.youtube.com/vi/5lX1Vs0KVbw/default.jpg/" alt="DEMO" width="240" height="180" border="10" /></a><br> [Demo video of APK](https://youtu.be/5lX1Vs0KVbw)
+<a href="https://youtu.be/5lX1Vs0KVbw" target="_blank"><img src="https://img.youtube.com/vi/5lX1Vs0KVbw/0.jpg" alt="DEMO" width="240" height="180" border="10" /></a><br> [Demo video of APK](https://youtu.be/5lX1Vs0KVbw)
 
 ## Back End
 
