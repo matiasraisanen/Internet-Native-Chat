@@ -5,12 +5,13 @@ A react native chatting application with a connection to a MySQL database.
 
 <a href="https://youtu.be/5lX1Vs0KVbw" target="_blank"><img src="https://img.youtube.com/vi/5lX1Vs0KVbw/0.jpg" alt="DEMO" width="240" height="180" border="10" /></a><br> [Demo video of APK](https://youtu.be/5lX1Vs0KVbw)
 
+You can download Android APK from [here](https://github.com/matiasraisanen/Internet-Native-Chat/tree/master/apk) and install it on your device using the instructions in step 5 [here.](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html)
+
 ## Back End
 
 MySQL database where all the messages are stored.    
 PHP-scripts on the server side handle the connection to database.
 
-Front end application calls these scripts:    
 [showmessages.php](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/php_scripts/showmessages.php) outputs all the messages as a RESTful service.    
 [addmsg.php](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/php_scripts/addmsg.php) is used to add new messages to the database.    
 [cfg.php](https://github.com/matiasraisanen/Internet-Native-Chat/blob/master/php_scripts/cfg.php) contains the connection configuration.
