@@ -1,5 +1,5 @@
 import React from 'react';
-import {KeyboardAvoidingView, StyleSheet, Text, View, Button, TextInput, Image, Animated, Easing} from 'react-native';
+import {KeyboardAvoidingView, StyleSheet, Text, View, Button, TextInput, Image, Animated, Easing, Alert} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import { Header, Icon } from 'react-native-elements';
 
@@ -27,23 +27,23 @@ export default class Home extends React.Component{
         Animated.timing( this.state.spinValue,
           {
             toValue: 1,
-            duration: 800,
+            duration: 10000,
             easing: Easing.linear,
-            delay: 3000
+            delay: 0
           }
         ),
         Animated.sequence([
           Animated.timing(this.state.sizeValue,
             {
             toValue: 10,
-            duration: 400,
+            duration: 5000,
             easing: Easing.linear,
-            delay: 3000
+            delay: 0
           }),
           Animated.timing(this.state.sizeValue,
             {
             toValue: 1,
-            duration: 400,
+            duration: 5000,
             easing: Easing.linear,
           }),
         ])
@@ -93,11 +93,11 @@ export default class Home extends React.Component{
         <View style={styles.inputsContainer}>
           <Text>What should we call you?</Text>
 
-          <TextInput placeholder = "nickname" style={styles.textInput} onChangeText={(text) => this.setState({nick: text})} value={this.state.nick} onSubmitEditing={() => navigate('ChatScreen', {nick: this.state.nick})} returnKeyType='go'/>
+          <TextInput placeholder = "nickname" style={styles.textInput} onChangeText={(text) => this.setState({nick: text})} value={this.state.nick} onSubmitEditing={() => (this.state.nick == '')? Alert.alert('Please set a nick!'):(navigate('ChatScreen', {nick: this.state.nick}))} returnKeyType='go'/>
           {/* Change keyboard submit button to 'go', and add an action to it. */}
 
 
-          <Button onPress={() => navigate('ChatScreen', {nick: this.state.nick})} title="Let me in!"/>
+          <Button onPress={() => (this.state.nick == '')? Alert.alert('Please set a nick!'):(navigate('ChatScreen', {nick: this.state.nick}))} title="Let me in!"/>
         </View>
 
       </KeyboardAvoidingView>
